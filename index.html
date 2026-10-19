@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEMO — O Herói da Democracia</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #05050a; color: #ccc; font-family: "Courier New", monospace; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  canvas {
+    width: min(100vw, calc((100vh - 44px) * 4 / 3));
+    height: auto;
+    aspect-ratio: 4 / 3;
+    image-rendering: pixelated;
+    background: #000;
+    outline: none;
+  }
+  p { font-size: 12px; margin: 6px 0 0; opacity: .7; text-align: center; }
+</style>
+</head>
+<body>
+<canvas id="game" width="640" height="480" tabindex="0"></canvas>
+<p>Setas: mover · Z: pular · X: atirar (segure para carregar) · C: dash · A/S: trocar habilidade · Enter: pausa</p>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
