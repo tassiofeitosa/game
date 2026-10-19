@@ -29,6 +29,12 @@ function pad() {
 export const input = {
   cur: {},
   prev: {},
+  touch: {}, // preenchido por touch.js
+  touchMode: false,
+  // rótulo de tecla para textos de ajuda: no celular mostra o botão correspondente
+  label(k) {
+    return this.touchMode ? { 'Z': 'PULO', 'ENTER': 'PAUSA', 'Z/ENTER': 'PULO' }[k] || k : k;
+  },
   update() {
     this.prev = this.cur;
     const cur = {};
@@ -49,6 +55,7 @@ export const input = {
       cur.next ||= b(5);
       cur.pause ||= b(9);
     }
+    for (const a in this.touch) if (this.touch[a]) cur[a] = true;
     this.cur = cur;
   },
   held(a) {

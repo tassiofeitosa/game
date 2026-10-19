@@ -387,8 +387,13 @@ export class StageScene {
     }
     if (this.helpT > 0 && this.state === 'play') {
       ctx.globalAlpha = Math.min(1, this.helpT / 40);
-      text(ctx, 'SETAS: mover   Z: pular   X: atirar (segure p/ carregar)', W / 2, 196, '#fff', 7, 'center');
-      text(ctx, 'C: dash   pule na parede para escalar (wall jump)', W / 2, 207, '#fff', 7, 'center');
+      if (input.touchMode) {
+        text(ctx, 'PULO / TIRO (segure p/ carregar) / DASH', W / 2, 196, '#fff', 7, 'center');
+        text(ctx, 'pule na parede para escalar (wall jump)', W / 2, 207, '#fff', 7, 'center');
+      } else {
+        text(ctx, 'SETAS: mover   Z: pular   X: atirar (segure p/ carregar)', W / 2, 196, '#fff', 7, 'center');
+        text(ctx, 'C: dash   pule na parede para escalar (wall jump)', W / 2, 207, '#fff', 7, 'center');
+      }
       ctx.globalAlpha = 1;
     }
     if (this.dialog) this.dialog.draw(ctx, false, true);
@@ -406,7 +411,7 @@ export class StageScene {
         text(ctx, w.name, 40, 80 + k * 16, wi === this.player.weapon ? w.light : '#888', 8);
         if (wi > 0) text(ctx, `${Math.ceil(this.player.energy[wi])}/28`, 280, 80 + k * 16, w.light, 8, 'right');
       });
-      text(ctx, 'ENTER: continuar', W / 2, 200, '#aaa', 8, 'center');
+      text(ctx, input.label('ENTER') + ': continuar', W / 2, 200, '#aaa', 8, 'center');
     }
   }
 }

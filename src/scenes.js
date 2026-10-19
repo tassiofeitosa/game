@@ -73,7 +73,7 @@ export class TitleScene {
       const c = i === this.sel ? '#fff' : '#888';
       text(ctx, (i === this.sel && Math.floor(this.t / 15) % 2 === 0 ? '> ' : '  ') + it, W / 2, 160 + i * 14, c, 10, 'center');
     });
-    text(ctx, 'Z/ENTER: confirmar', W / 2, 212, '#aaa', 7, 'center');
+    text(ctx, input.label('Z/ENTER') + ': confirmar', W / 2, 212, '#aaa', 7, 'center');
     text(ctx, 'Uma história fictícia sobre o poder do povo', W / 2, 224, '#777', 7, 'center');
   }
 }
@@ -196,7 +196,7 @@ export class StageSelectScene {
     if (b.weapon) text(ctx, 'HABILIDADE: ' + WEAPONS[WEAPON_INDEX[b.weapon]].name, 14, 200, WEAPONS[WEAPON_INDEX[b.weapon]].light, 7);
     else text(ctx, 'O ÚLTIMO TENENTE DO CONSÓRCIO ÁUREO', 14, 200, '#f66', 7);
     text(ctx, `FRACO CONTRA: ${WEAPONS[WEAPON_INDEX[b.weak]].name}`, 14, 211, '#aaa', 7);
-    text(ctx, 'Z: ENTRAR', W - 14, 220, '#fff', 7, 'right');
+    text(ctx, input.label('Z') + ': ENTRAR', W - 14, 220, '#fff', 7, 'right');
   }
 }
 
@@ -224,7 +224,7 @@ export class LearnedScene {
     text(ctx, this.w.name, W / 2, 104, this.w.light, 12, 'center');
     ctx.font = 'bold 8px "Courier New", monospace';
     wrapText(ctx, this.w.desc, 280).forEach((l, i) => text(ctx, l, W / 2, 128 + i * 12, '#fff', 8, 'center'));
-    if (this.t > 60 && Math.floor(this.t / 20) % 2 === 0) text(ctx, 'Z: CONTINUAR', W / 2, 214, '#aaa', 8, 'center');
+    if (this.t > 60 && Math.floor(this.t / 20) % 2 === 0) text(ctx, input.label('Z') + ': CONTINUAR', W / 2, 214, '#aaa', 8, 'center');
   }
 }
 
@@ -254,7 +254,7 @@ export class EndingScene {
       text(ctx, 'O PODER VOLTOU AO POVO', W / 2, 110, '#fff', 12, 'center');
       text(ctx, 'A democracia se defende todos os dias.', W / 2, 140, '#7fd8ff', 8, 'center');
       text(ctx, 'Obrigado por jogar!', W / 2, 160, '#aaa', 8, 'center');
-      if (this.t > 120 && Math.floor(this.t / 20) % 2 === 0) text(ctx, 'Z: VOLTAR AO TÍTULO', W / 2, 210, '#fff', 8, 'center');
+      if (this.t > 120 && Math.floor(this.t / 20) % 2 === 0) text(ctx, input.label('Z') + ': VOLTAR AO TÍTULO', W / 2, 210, '#fff', 8, 'center');
     }
   }
 }

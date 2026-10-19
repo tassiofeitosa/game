@@ -1,6 +1,7 @@
 import { W, H, loadSave, writeSave } from './util.js';
 import { input } from './input.js';
 import { initAudio } from './audio.js';
+import { initTouch } from './touch.js';
 import { StageScene } from './stage.js';
 import { TitleScene, LearnedScene, EndingScene } from './scenes.js';
 
@@ -78,6 +79,7 @@ class Game {
   }
 }
 
+initTouch();
 const game = new Game();
 window.game = game;
 window.__input = input;
